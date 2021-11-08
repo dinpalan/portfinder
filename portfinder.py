@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 #SHEBANG
-#copyright (c) Dinesh_Kumar_Palanivelu #Save file as <title>.py in your preferred location. Then start typing
-# port scanner
+#Save file as <title>.py in your preferred location. Then start typing
+#port scanner
 import argparse
 from scapy.all import *
 import socket
@@ -101,3 +101,4 @@ def main():
               
 if __name__=='__main__':
        main() 
+#Program created by Dinesh_Kumar_Palanivelu 
