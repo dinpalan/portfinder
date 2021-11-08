@@ -78,7 +78,7 @@ def udp_scan():
 def main():
 #write your main function here 
        try:
-
+              banner()
               args()
               global ports
               if port:
