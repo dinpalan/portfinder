@@ -15,21 +15,12 @@ def banner():
 
 #argparse with description
 def args():
-    parser = argparse.ArgumentParser(description="Welcome to my Port Scanning Application");
-       
-    parser.add_argument('t', action = 'store', help='IP Address');
-    parser.add_argument("s", help="Scan type, TCP-Ack,TCP-Syn and UDP"); parser.print_help();
-    parser.add_argument("--p",type=int, help="Specify ports (53 80 ...)")
-    
-       #Adding arguments #remove type if not required      
-    args = parser.parse_args()
     global target
-    target = args.t
+    target = input("Please enter IP Address(8.8.8.8,..):")
     global port
-    port = args.p
+    port = input("Please Specify ports (53 80 ...)(optional):")
     global scan
-    sc = args.s
-    scan = sc.lower()
+    scan = input("Please enter Scan type, TCP-Ack,TCP-Syn and UDP:")
 
 #TCP-Sync     
 def syn():
@@ -75,7 +66,7 @@ def udp_scan():
             print("Sent and received ports are matching")
 
 
-def main():
+def dikupaportscanner():
 #write your main function here 
        try:
               banner()
@@ -86,6 +77,7 @@ def main():
               else:
                 # default port range
                   ports = range(1, 1024)
+              scan.lower()
               if scan == "udp":
                   udp_scan()
               if scan == "tcp-ack":
@@ -93,12 +85,11 @@ def main():
               if scan == "tcp-syn":
                   asyn()
 
-              while True:                     
-                     logger.info("Press 'ctrl+c' to exit");sleep(2);
+              logger.info("Press 'ctrl+c' to exit");sleep(2);
                      
        except KeyboardInterrupt:
               print("Exiting because of program interpreted by user"); print("Thanks for using my application");       
               
 if __name__=='__main__':
-       main() 
+       dikupaportscanner() 
 #Program created by Dinesh_Kumar_Palanivelu 
